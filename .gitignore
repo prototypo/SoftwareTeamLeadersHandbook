@@ -1,0 +1,15 @@
+#########
+# LaTex #
+#########
+*.aux
+*.bbl
+*.blg
+*.ex1
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.gz
+*.toc
+

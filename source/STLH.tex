@@ -1,0 +1,265 @@
+%%%%%%%%%%%%%%%%%%%%%%%% HAUB.tex %%%%%%%%%%%%%%%%%%%%%%%
+%
+% Root file for: Software Team Leaders Handbook (D. Hyland-Wood) March 2016
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[10pt]{book} % 10 point font
+%\documentclass[11pt]{book} % 11 point font
+\documentclass[12pt]{book} % 12 point font
+\usepackage[a4paper, top=3cm, bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{fancybox}
+
+% Extension Packages
+%-------------------------------------------------------------------------------
+\usepackage{mathptmx}	% selects Times Roman as basic font
+\usepackage{helvet}		% selects Helvetica as sans-serif font
+\usepackage{courier}	% selects Courier as typewriter font
+%\usepackage{type1cm}	% activate if the above 3 fonts are 
+					% not available on your system
+					
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\newenvironment{dedication}
+    {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
+    {\par\end{em}\end{center}\end{quotation}}
+    
+\usepackage{makeidx}	% allows index generation
+\usepackage{graphicx}	% standard LaTeX graphics tool
+					% when including figure files
+\usepackage{multicol}	% used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
+%\usepackage{url}		% Avoid problems with special characters in URLs
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage{breakurl}	% Apparently cannot be used when processing with pdflatex.
+
+\usepackage{soul}		% Allow line breaks in underlined text.
+
+\usepackage{listings}
+\lstset{basicstyle=\small, columns=fixed}
+
+\usepackage{amsmath}
+
+\usepackage[titletoc]{appendix} % for appendices
+
+% Fix hyphenation
+\tolerance=700
+\setlength{\emergencystretch}{3em}
+
+% For layout of poetry
+\usepackage{lettrine}
+\usepackage{parselines}
+\usepackage{xcolor}
+%\definecolorseries{verso}{rgb}{last}{blue!40!black}{magenta!40!black}
+\definecolorseries{verso}{rgb}{last}{black}{black}
+\resetcolorseries[30]{verso}
+\newenvironment{verso}{\pagebreak[3]\begin{parse lines}[\parindent=1em\noindent]{\color{verso!!+}\hspace{\row\parindent}##1\newline\color{black}}}%
+{\end{parse lines}}
+
+%\usepackage{tocbibind}	% Allows the bibliography to appear in the TOC.
+
+\makeindex			% used for the subject index
+					% NB: Springer uses the style svind.ist with the makeindex program. 
+					% TODO: Should I?
+
+% Use a single bibliography style
+%\usepackage[super]{natbib} % Makes citations superscript, which is nicer but conflicts with footnotes. TODO: Change somehow.
+\bibliographystyle{plain}
+
+% Custom
+%-------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}   % Allows words with accented characters to be cut-and-pasted, and hyphenated.
+\usepackage{enumitem}
+\usepackage{phonetic}
+
+% For title page
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\usepackage[export]{adjustbox}
+
+% For Russian (Cyrillic) names in endnotes:
+\newcommand{\cyrrm}{\fontencoding{OT2}\selectfont\textcyrup} % cyrrm = "Roman", or really upright, normal font
+
+\lstset{
+      basicstyle = \scriptsize \ttfamily,%
+      keywordstyle = [1]\bfseries\color{darkgreen},%
+      stringstyle  = \ttfamily\color{darkred},%
+      commentstyle = \itshape\color{darkblue},%
+      showstringspaces = false,%
+%     fancyvrb = true,%
+      firstnumber = auto, stepnumber=1, numbersep=5pt,%
+      numbers=left, numberstyle=\tiny \ttfamily,
+      frame = shadowbox, frameround = ffff, rulesepcolor = \color{shadecolor},
+      breaklines=true, breakatwhitespace=true,%
+%      prebreak=\textellipsis,postbreak=\textellipsis,%
+      emphstyle = \color{red}\underbar, emphstyle = {[2]\color{blue}\underbar},%
+      extendedchars = true, inputencoding = utf8,%
+%     backgroundcolor=\color{shadecolor},
+      xleftmargin=5pt, xrightmargin=2pt,
+      captionpos = b
+}
+% End Custom
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+
+% Graphical Cover
+%-------------------------------------------------------------------------------
+\begin{titlepage}
+
+\begin{figure}[htbp]
+\begin{center}
+%%\includegraphics[width=1.00\textwidth]{cover/stlh_cover}
+\end{center}
+\end{figure}
+
+
+\end{titlepage}
+
+% Title Pages
+%-------------------------------------------------------------------------------
+\pagestyle{empty}
+
+\begin{titlepage}
+\vspace*{\fill}
+\noindent
+\textsc{Preview Edition, \today}
+
+\vspace{5 mm}
+\noindent
+Copyright \textcopyright { }2016 by David P. Hyland-Wood
+
+\vspace{5 mm}
+\noindent
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with the Invariant Sections being  "Acknowledgements", "Dedication",
+and "History", no Front-Cover Texts, and no Back-Cover Texts.
+
+\vspace{5 mm}
+\noindent
+\textbf{Library of Congress Cataloging in Publication Data} not yet registered.
+
+\end{titlepage}
+
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+%%\includegraphics[width=0.80\textwidth, frame]{cover/stlh_excerpt}~\\[1cm]
+
+% Title
+\HRule \\[0.4cm]
+{ \Huge \bfseries Software Team Leaders Handbook \\[0.4cm] }
+%\huge A subtitle would go here\\[0.5cm]
+\HRule \\[1.5cm]
+
+% Author
+\noindent
+\begin{minipage}{0.4\textwidth}
+\begin{center} \large
+\emph{by}\\
+David P. Hyland-Wood
+\end{center}
+\end{minipage}%
+
+\vfill
+
+% Bottom of the page
+{\large \today}
+
+\end{center}
+\end{titlepage}
+
+% General definitions for all Chapters
+%-------------------------------------------------------------------------------
+% Define Page style for all chapters
+\pagestyle{fancy}
+% Delete the current section for header and footer
+\fancyhf{}
+% Set custom header
+\lhead[]{\thepage}
+\rhead[\thepage]{}
+% Set arabic (1,2,3...) page numbering
+\pagenumbering{arabic}
+% Set double spacing for the text
+\doublespacing
+
+% Frontmatter
+%-------------------------------------------------------------------------------
+\frontmatter
+% Frontmatter "chapters" have no chapter numbers, so use '\chapter*'.
+
+\include{front-back-matter/dedication}
+
+%%\include{front-back-matter/acknowledgements}
+%%\addcontentsline{toc}{chapter}{Acknowledgements} % Add to TOC
+
+%%\include{front-back-matter/preface}
+%%\addcontentsline{toc}{chapter}{Preface} % Add to TOC
+
+% Table of Contents
+%-------------------------------------------------------------------------------
+\newpage
+% Use dots between chapter name and page number
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+% Include the ToC
+\setcounter{tocdepth}{1} % Limit ToC depth to chapters and sections.
+\tableofcontents
+
+% If the chapter ends in an odd page, you may want to skip having the page
+%  number in the empty page
+\newpage
+\thispagestyle{empty}
+
+% Mainmatter
+%-------------------------------------------------------------------------------
+\mainmatter
+% Mainmatter chapters have chapter numbers, so use '\chapter'.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\include{congratulations-now-what/congratulations-now-what}
+\include{theory/theory}
+\include{leadership-management/leadership-management}
+\include{managing-people/managing-people}
+\include{understanding-business/understanding-business}
+\include{innovation/innovation}
+\include{scenarios/scenarios}
+
+% Backmatter
+%-------------------------------------------------------------------------------
+
+% Backmatter "chapters" have no chapter numbers, so use '\chapter*'.
+
+\include{front-back-matter/appLehmansLaws}
+
+\include{front-back-matter/references} % Added to TOC in the bibliography file
+
+\include{front-back-matter/abouttheauthor}% Added to TOC in the chapter file
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index} % Add to TOC
+\printindex
+%-------------------------------------------------------------------------------
+
+\end{document}
+
