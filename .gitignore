@@ -5,12 +5,13 @@
 *.bbl
 *.blg
 *.ex1
+*.gz
 *.idx
 *.ilg
 *.ind
 *.log
 *.out
-*.gz
+*.pdf
 *.toc
 
 #######
